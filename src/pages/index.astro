@@ -1,0 +1,10 @@
+---
+import LoginForm from "../components/form/login";
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main class="max-w-md p-6 m-auto">
+    <LoginForm client:visible />
+  </main>
+</Layout>
