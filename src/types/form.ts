@@ -10,3 +10,7 @@ export interface IRegisterFormData {
     password: string;
     confirmPassword: string;
 }
+
+export interface IForgotPasswordFormData {
+    email: string;
+}

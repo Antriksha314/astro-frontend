@@ -3,6 +3,8 @@ import type { ILoginFormData } from "../../types/form";
 import { LoginFormInput } from "../../utils/inputs/form";
 import { LoginSchema } from "../../utils/validation/form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "react-toastify";
+import { client } from "../../utils";
 
 const LoginForm = () => {
   const {
@@ -14,7 +16,13 @@ const LoginForm = () => {
   });
 
   const onSubmit: SubmitHandler<ILoginFormData> = async (data) => {
-    console.log("data", data);
+    const response = await client({ endpoint: "/auth/login", body: data });
+    if (!response?.success) {
+      toast.error(response.message);
+      return;
+    }
+    toast.success(response.message);
+    window.location.href = "/welcome";
   };
 
   return (
@@ -72,7 +80,7 @@ const LoginForm = () => {
             </label>
           </div>
           <a
-            href="#"
+            href="/forgot-password"
             className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
           >
             Forgot Password?

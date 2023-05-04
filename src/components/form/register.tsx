@@ -3,7 +3,8 @@ import type { IRegisterFormData } from "../../types/form";
 import { RegisterFormInput } from "../../utils/inputs/form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterSchema } from "../../utils/validation/form";
-
+import { toast } from "react-toastify";
+import { client } from "../../utils";
 const RegisterForm: React.FC = () => {
   const { register, handleSubmit, formState } = useForm<IRegisterFormData>({
     mode: "all",
@@ -11,7 +12,14 @@ const RegisterForm: React.FC = () => {
   });
   const { errors } = formState;
   const onSubmit: SubmitHandler<IRegisterFormData> = async (data) => {
-    console.log("register data", data);
+    const response = await client({ endpoint: "/auth/register", body: data });
+    if (!response?.success) {
+      toast.error(response.message);
+      return;
+    }
+    toast.success(response.message);
+    window.location.href = "/welcome";
+    return;
   };
 
   return (

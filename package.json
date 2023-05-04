@@ -20,6 +20,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.43.9",
+    "react-toastify": "^9.1.2",
+    "sooner": "^1.1.4",
     "tailwindcss": "^3.0.24",
     "yup": "^1.1.1"
   }

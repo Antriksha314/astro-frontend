@@ -1,31 +1,36 @@
-export const client = ({ endpoint, body = null, method = 'POST', user = null }: { endpoint: string, body?: any, method?: string, user?: any }) => {
+const BASE_API_URL =
+  import.meta.env.BASE_API_URL || "http://localhost:5050/api";
+export const client = ({
+  endpoint,
+  body = null,
+  method = "POST",
+  user = null,
+}: {
+  endpoint: string;
+  body?: any;
+  method?: string;
+  user?: any;
+}) => {
+  const headers: any = { "Content-Type": "application/json" };
+  if (user && user.token) {
+    headers.Authorization = `Bearer ${user.token}`;
+  }
+  const config: any = {
+    method,
+    headers: {
+      ...headers,
+    },
+  };
 
-    const headers: any = { 'Content-Type': 'application/json' };
-    if (user && user.token) {
-        headers.Authorization = `Bearer ${user.token}`;
-    }
-    const config: any = {
-        method,
-        headers: {
-            ...headers,
-        },
-    };
-
-    if (body) {
-        config.body = JSON.stringify(body);
-    }
-
-    return fetch(`${import.meta.env.NEXT_PUBLIC_API_URL}${endpoint}`, config)
-        .then(async (res) => {
-            if (res?.status === 404) return;
-            const data = await res.json();
-            if (res.ok) {
-                return data;
-            } else {
-                return Promise.reject(data);
-            }
-        })
-        .catch(async (res) => {
-            return Promise.reject(res);
-        });
+  if (body) {
+    config.body = JSON.stringify(body);
+  }
+  return fetch(`${BASE_API_URL}${endpoint}`, config)
+    .then(async (res) => {
+      const data = await res.json();
+      return data;
+    })
+    .catch(async (res) => {
+      return Promise.reject(res);
+    });
 };
