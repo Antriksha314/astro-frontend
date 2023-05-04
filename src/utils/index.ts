@@ -15,7 +15,7 @@ export const client = ({ endpoint, body = null, method = 'POST', user = null }: 
         config.body = JSON.stringify(body);
     }
 
-    return fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, config)
+    return fetch(`${import.meta.env.NEXT_PUBLIC_API_URL}${endpoint}`, config)
         .then(async (res) => {
             if (res?.status === 404) return;
             const data = await res.json();
