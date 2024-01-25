@@ -1,57 +1,39 @@
-# Astro Starter Kit: Basics
+# Astro Frontend Project
 
-```
-npm create astro@latest -- --template basics
-```
+Welcome to the Astro Frontend Project! This project aims to provide a simple and efficient user interface for managing user authentication and profiles. It leverages the Astro framework, along with Tailwind CSS components, to create a seamless and responsive user experience.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Simple project to learn astro framework.
+## Table of Contents
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Features](#features)
+  - [Login](#login)
+  - [Register](#register)
+  - [Update Profile](#update-profile)
+- [Validation](#validation)
+- [Technologies Used](#technologies-used)
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+## Getting Started
 
+### Prerequisites
 
-## 🚀 Project Structure
+Before you begin, make sure you have the following installed:
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Node.js](https://nodejs.org/)
+- [Astro](https://astro.build/)
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### Installation
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+1. Run command to install:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+   ```bash
+     yarn
+   ```
 
-Any static assets, like images, can be placed in the `public/` directory.
+2. Run command to start:
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# astro-frontend
-# astro-frontend
+   ```bash
+     yarn dev
+   ```
